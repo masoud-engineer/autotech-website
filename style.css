@@ -1,0 +1,1229 @@
+/* Removes default browser spacing and makes sizing predictable */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Defines reusable colours for consistent website branding */
+:root {
+    --primary-color: #172554;
+    --secondary-color: #facc15;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+/* Sets the general font and text colour */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
+/* Styles the navigation container */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 5%;
+}
+
+/* Arranges navigation links horizontally */
+.nav-links {
+    display: flex;
+    gap: 25px;
+
+    list-style: none;
+}
+
+/* Styles navigation links */
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Changes link appearance when the mouse moves over it */
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero section: Creates an attractive full-width introducton*/
+.hero {
+    min-height: 600px;
+
+    /* Places the background image behind the content*/
+    background-image:
+    linear-gradient(
+        rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.65)
+    ),
+    url("../images/car.jpg");
+
+    /* Prevent the image from repeating*/
+    background-repeat: no-repeat;
+
+    /*Make the image cover the entire hero section*/
+    background-size: cover;
+
+    /* Keep the important part of the image visible*/
+    background-position: center;
+
+    /* Center the introductory contents*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 40px 5%;
+}
+
+/* Controls the width of the introductory content */
+.hero-content {
+    max-width: 800px;
+    color: white;
+}
+
+/* Main heading typography */
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Styles the introductory paragraph */
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Styles the call-to-action button */
+.btn {
+    display: inline-block;
+
+    background-color: var(--secondary-color);
+    color: #000;
+
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    /* Make hover changes appear smoothly*/
+    transition: 0.3s;
+}
+
+/* Interactive button appearance*/
+.btn:hover{
+    background-color: white;
+    transform: translateY(-3px);
+}
+/* Styles the footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    text-align: center;
+    padding: 20px;
+}
+
+/* SERVICES SECTION */
+
+/* Controls the entire services section */
+.services-section {
+    padding: 80px 5%;
+    background-color: #f8fafc;
+}
+
+/* Controls the section heading and introduction */
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 50px;
+}
+
+/* Main section heading typography */
+.section-heading h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Introductory paragraph */
+.section-heading p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+
+/* SERVICES GRID */
+
+/* Arranges service cards into responsive columns */
+.services-grid {
+    display: grid;
+
+    /* Creates as many columns as fit, with a minimum width of 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    /* Creates equal spacing between cards */
+    gap: 25px;
+
+    /* Prevents the grid from becoming excessively wide */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* INDIVIDUAL SERVICE CARDS */
+
+.service-card {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    /* Adds a subtle border around each card */
+    border: 1px solid #e2e8f0;
+
+    /* Creates a soft shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    /* Smoothly animates hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Number badge at the top of each card */
+.service-icon {
+    width: 45px;
+    height: 45px;
+
+    background-color: var(--primary-color);
+    color: white;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/* Service title */
+.service-card h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+
+/* Service description */
+.service-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+
+/* Enquiry link */
+.service-link {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Interactive hover effect */
+.service-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Changes the link colour when hovering */
+.service-link:hover {
+    color: #f59e0b;
+}
+
+/* About section spacing and background */
+.about-section {
+    padding: 80px 5%;
+    background-color: white;
+}
+
+/* Arrange text and image in two columns */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* About heading */
+.about-text h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* About paragraphs */
+.about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* Make the image fit its container */
+.about-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Why Choose Us section */
+.why-us-section {
+    padding: 80px 5%;
+    background-color: #f8fafc;
+}
+
+/* Arrange the four reasons in responsive columns */
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual reason cards */
+.why-us-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+/* Numbered icon */
+.why-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Card heading */
+.why-us-card h3 {
+    color: var(--primary-color);
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+/* Card description */
+.why-us-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Small animation when hovering over a card */
+.why-us-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Gallery section */
+.gallery-section {
+    padding: 80px 5%;
+    background-color: white;
+}
+
+/* Responsive image grid */
+.gallery-grid {
+    display: grid;
+
+    /* Each column must be at least 250px wide */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual gallery item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #f1f5f9;
+}
+
+/* Image dimensions */
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+
+    /* Smooth image animation */
+    transition: transform 0.4s ease;
+}
+
+/* Enlarge image slightly on hover */
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Image caption */
+.gallery-item figcaption {
+    padding: 15px;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Testimonials section */
+.testimonials-section {
+    padding: 80px 5%;
+    background-color: #f8fafc;
+}
+
+/* Arrange testimonials in responsive columns */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual testimonial card */
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Star rating */
+.stars {
+    color: #f59e0b;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Customer review */
+.testimonial-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* Customer name */
+.testimonial-card h3 {
+    color: var(--primary-color);
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+/* Customer label */
+.testimonial-card span {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* Contact section */
+.contact-section {
+    padding: 80px 5%;
+    background-color: white;
+}
+
+/* Arrange contact details and map side by side */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual contact information */
+.contact-item {
+    margin-bottom: 25px;
+}
+
+.contact-item h3 {
+    color: var(--primary-color);
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.contact-item p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* WhatsApp button */
+.whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+/* Google Maps container */
+.contact-map iframe {
+    border-radius: 10px;
+}
+
+/* Main footer styling */
+.footer {
+    background-color: #172554;
+    color: white;
+    padding: 60px 5% 20px;
+}
+
+/* Three-column footer layout */
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Footer headings */
+.footer h2,
+.footer h3 {
+    margin-bottom: 20px;
+}
+
+/* Footer descriptions */
+.footer p {
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* Remove default list styling */
+.footer-links ul {
+    list-style: none;
+}
+
+/* Footer navigation links */
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Navigation hover effect */
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Copyright area */
+.footer-bottom {
+    border-top: 1px solid #334155;
+    text-align: center;
+    margin-top: 45px;
+    padding-top: 20px;
+}
+
+
+/* Responsive footer layout */
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+}
+
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stack the columns on smaller screens */
+@media (max-width: 600px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/*Adjust the hero section for smaller screens*/
+@media(max-width: 600px;){
+    .hero{
+        min-height: 450px;
+    }
+    .hero h1{
+        font-size: 32px;
+    }
+    .hero p{
+        font-size: 16px;
+    }
+}
+
+ /* Hide hamburger button on desktop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 30px;
+    height: 22px;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* The three horizontal lines */
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+
+    /* Display hamburger button */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Position navigation container */
+    .navbar {
+        position: relative;
+    }
+/* Hide navigation links initially*/
+    .nav-links {
+        display: none;
+        flex-direction: column;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    /* Show links when JavaScript adds this class/when menu activated */
+    .nav-links.active {
+        display: flex;
+    }
+
+}
+
+/* =================================
+   SERVICES PAGE
+================================= */
+
+/* Hero section */
+.services-hero {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+        url("../images/workshop.jpg") center/cover no-repeat;
+}
+
+.services-hero-content {
+    max-width: 750px;
+    color: white;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: #d97706;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.services-hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.services-hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 650px;
+}
+
+/* Detailed services section */
+.services-detail-section {
+    padding: 85px 5%;
+    background: #f8fafc;
+}
+
+.services-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+}
+
+.service-detail-card {
+    background: white;
+    padding: 35px 28px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.service-number {
+    color: #d97706;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.service-detail-card h3 {
+    color: var(--primary-color);
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.service-detail-card p {
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.service-detail-card ul {
+    padding-left: 20px;
+}
+
+.service-detail-card li {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Hover effect for devices supporting hover */
+@media (hover: hover) and (pointer: fine) {
+    .service-detail-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(0,0,0,.08);
+    }
+}
+
+/* Final contact section */
+.services-cta {
+    padding: 80px 5%;
+    background: var(--primary-color);
+    text-align: center;
+    color: white;
+}
+
+.services-cta-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.services-cta h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.services-cta p {
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+/* Highlight current page in navigation */
+.nav-links a.active-page {
+    color: var(--secondary-color);
+}
+
+/* Remove default bullet points from footer lists*/
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Tablet layout */
+@media (max-width: 900px) {
+    .services-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .services-hero {
+        min-height: 400px;
+        padding: 65px 6%;
+    }
+
+    .services-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-detail-section {
+        padding: 65px 6%;
+    }
+
+    .services-cta h2 {
+        font-size: 26px;
+    }
+}
+
+
+/* ================================
+   ABOUT PAGE
+================================ */
+
+/* About hero */
+.about-hero {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+        url("../images/workshop.jpg") center/cover no-repeat;
+}
+
+.about-hero-content {
+    max-width: 750px;
+    color: white;
+}
+
+.about-hero h1 {
+    font-size: clamp(32px, 5vw, 50px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+/* Company introduction */
+.about-story-section {
+    padding: 85px 6%;
+    background: white;
+}
+
+.about-story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-story-text h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 22px;
+}
+
+.about-story-text p {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.about-story-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Mission and vision */
+.mission-section {
+    padding: 80px 6%;
+    background: #f8fafc;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1000px;
+    margin: 45px auto 0;
+}
+
+.mission-card {
+    padding: 35px;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.mission-card h3 {
+    color: var(--primary-color);
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.mission-card p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* Core values */
+.values-section {
+    padding: 85px 5%;
+    background: white;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 45px auto 0;
+}
+
+.value-card {
+    padding: 28px 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.value-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.value-card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* About page CTA */
+.about-cta {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 80px 6%;
+}
+
+.about-cta h2 {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.about-cta p {
+    color: #cbd5e1;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 28px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .about-story-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-story-image img {
+        height: 280px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-story-text h2 {
+        font-size: 27px;
+    }
+
+    .about-cta h2 {
+        font-size: 25px;
+    }
+
+}
+
+/* =================================
+   CONTACT SECTION
+================================= */
+
+.contact-section {
+    padding: 85px 6%;
+    background: #f8fafc;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 50px auto 0;
+}
+
+/* Contact information */
+.contact-info {
+    padding: 30px 0;
+}
+
+.contact-info h3,
+.contact-form-container h3 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-info > p {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.contact-detail {
+    margin-bottom: 25px;
+}
+
+.contact-detail strong {
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.contact-detail a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.contact-detail p {
+    color: #64748b;
+}
+
+/* Contact form */
+.contact-form-container {
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 20px rgba(0,0,0,.04);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    background: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+.contact-submit {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .contact-form-container {
+        padding: 25px 20px;
+    }
+
+}
+
+/* WhatsApp contact button */
+.contact-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    padding: 15px 20px;
+
+    background-color: #25D366;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Control the WhatsApp icon size */
+.contact-submit svg {
+    width: 23px;
+    height: 23px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Button hover effect */
+.contact-submit:hover {
+    background-color: #1DA851;
+}
+
+/* Visible keyboard focus */
+.contact-submit:focus-visible {
+    outline: 3px solid #172554;
+    outline-offset: 3px;
+}
+
+/* Social media links */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    background-color: rgba(255,255,255,.1);
+    border-radius: 50%;
+
+    transition: background-color .3s ease,
+                transform .3s ease;
+}
+
+.social-links svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.social-links a:hover {
+    background-color: #d97706;
+    transform: translateY(-4px);
+}
+
+/* Make keyboard navigation clearl visible*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+}
+
+/* Improve readility of form labels*/
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
