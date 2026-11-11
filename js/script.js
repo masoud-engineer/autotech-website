@@ -1,102 +1,79 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* AutoTech interactions: mobile navigation and WhatsApp enquiry form. */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-    // Select the hamburger button and navigation menu
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+  // The navigation exists on all three pages; guard against missing markup.
+  if (menuToggle && navLinks) {
+    const closeMenu = () => {
+      navLinks.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+    };
 
-    // Function to close the mobile navigation menu
-    function closeMenu() {
-        navLinks.classList.remove("active");
-
-        // Update accessibility information
-        menuToggle.setAttribute("aria-expanded", "false");
-    }
-
-    // Open or close the menu when the hamburger is clicked
-    menuToggle.addEventListener("click", function () {
-
-        const isOpen = navLinks.classList.toggle("active");
-
-        menuToggle.setAttribute("aria-expanded", isOpen);
-
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
     });
 
-    // Close the menu after selecting a navigation link
-    const navItems = navLinks.querySelectorAll("a");
-
-    navItems.forEach(function (link) {
-
-        link.addEventListener("click", function () {
-            closeMenu();
-        });
-
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
 
-    // Close the menu when clicking outside the navigation
-    document.addEventListener("click", function (event) {
-
-        const clickedInsideMenu = navLinks.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (
-            navLinks.classList.contains("active") &&
-            !clickedInsideMenu &&
-            !clickedToggle
-        ) {
-            closeMenu();
-        }
-
+    document.addEventListener("click", (event) => {
+      if (
+        navLinks.classList.contains("active") &&
+        !navLinks.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        closeMenu();
+      }
     });
 
-    // Close the menu when the Escape key is pressed
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
-            closeMenu();
-        }
-
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
     });
 
-});
+    // Close the expanded menu if the screen is resized back to desktop.
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) closeMenu();
+    });
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
+  const contactForm = document.querySelector("#contact-form");
 
-    const contactForm = document.querySelector("#contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    // Run only on pages containing the contact form
-    if (contactForm) {
+      const name = document.querySelector("#customer-name")?.value.trim() || "";
+      const phone = document.querySelector("#customer-phone")?.value.trim() || "";
+      const service = document.querySelector("#service")?.value || "";
+      const message = document.querySelector("#customer-message")?.value.trim() || "";
 
-        contactForm.addEventListener("submit", function (event) {
+      // Tanzania country code + business number, without the leading plus sign.
+      const businessNumber = "255787772669";
 
-            // Stop the browser from reloading the page
-            event.preventDefault();
+      const whatsappMessage = [
+        "Hello AutoTech!",
+        "",
+        `Name: ${name}`,
+        `Phone: ${phone}`,
+        `Service Required: ${service}`,
+        `Message: ${message}`
+      ].join("\n");
 
-            // Collect customer information
-            const name = document.querySelector("#customer-name").value.trim();
-            const phone = document.querySelector("#customer-phone").value.trim();
-            const service = document.querySelector("#service").value;
-            const message = document.querySelector("#customer-message").value.trim();
+      const whatsappURL =
+        `https://wa.me/${businessNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-            // Prepare the WhatsApp message
-            const whatsappMessage =
-                `Hello AutoTech!\n\n` +
-                `Name: ${name}\n` +
-                `Phone: ${phone}\n` +
-                `Service Required: ${service}\n` +
-                `Message: ${message}`;
+      // Open WhatsApp in a new tab after the customer's submit action.
+      const whatsappWindow = window.open(whatsappURL, "_blank", "noopener,noreferrer");
 
-            // Replace with the actual business WhatsApp number
-            const businessNumber = "255XXXXXXXXX";
-
-            // Encode message for safe URL transmission
-            const whatsappURL =
-                `https://wa.me/${businessNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-            // Open WhatsApp with the customer's enquiry
-            window.open(whatsappURL, "_blank");
-
-        });
-
-    }
-
+      // If the browser blocks new tabs, continue in the current tab.
+      if (!whatsappWindow) {
+        window.location.href = whatsappURL;
+      }
+    });
+  }
 });
